@@ -102,5 +102,40 @@
 	<script type="text/javascript">
 		app.initialize();
 	</script>
+	
+	<script>
+	// courtest of stack overflow...
+function make_base_auth(user, password) {
+  var tok = user + ':' + password;
+  var hash = btoa(tok);
+  return "Basic " + hash;
+}
+
+$('#loginForm').submit(function(e) {
+  e.preventDefault();
+  
+  alert("submit was called");
+	var username = $("#username", this).val();
+	var password = $("#password", this).val();
+
+//    var salt = json["salt"];
+//    var hash = hex_sha256($('#inputPassword').val());
+//    var password = hex_hmac_sha256(salt, hash);
+
+    $.ajax({
+      url      : 'http://www.desy.de/~bvenne/sicher/',
+      type     : 'GET',
+      headers  : { Authorization: make_base_auth(username, password) },
+      success  : function(){
+        setTimeout(function() { alert("laeuft!!!"); window.location = '/'; }, 2000);
+      },
+      error    : function(){ alert("FEHLER!!!"); console.log('error'); }
+    });
+
+
+
+});
+
+	</script>
 </body>
 </html>

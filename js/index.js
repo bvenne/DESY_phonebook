@@ -25,7 +25,7 @@ var app = {
 
 
 
-
+/*
 $("#loginForm").on("submit",function(e) {
 	
 var u = $("#username", this).val();
@@ -45,7 +45,7 @@ alert('done, geht!');
 });
 
 });
-        
+        */
         
         
         
