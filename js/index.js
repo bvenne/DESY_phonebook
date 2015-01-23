@@ -24,27 +24,27 @@ var app = {
 
 
 
+
+
 $("#loginForm").on("submit",function(e) {
-	alert("submit was called!");
-//disable the button so we can't resubmit while we wait
-$("#submitButton",this).attr("disabled","disabled");
+	
 var u = $("#username", this).val();
 var p = $("#password", this).val();
-if(u != '' && p!= '') {
-$.post("http://www.desy.de/~bvenne/sicher/", {username:u,password:p}, function(res) {
-if(res == true) {
-//$.mobile.changePage("some.html");
-alert("GEHT!!!");
-} else {
-navigator.notification.alert("Your login failed", function() {});
-alert("LOGIN FALSCH!");
-}
-$("#submitButton").removeAttr("disabled");
-},"json");
-}
-return false;
+
+$.ajax({
+'url': 'http://www.desy.de/~bvenne/sicher/',
+'beforeSend': function(xhr) {
+xhr.setRequestHeader("Authentication", "Basic " + encodeBase64(u + ":" + p)) //May need to use "Authorization" instead
+},
+sucess: function(result) {
+alert('done, geht!');
+},
+  error: function(){
+    alert('error mensch!');
+  }
 });
-        
+
+});
         
         
         
