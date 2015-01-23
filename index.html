@@ -50,6 +50,7 @@
 		<h1>DESY Login</h1>
 	</div>
 	<div>
+		<p id="hint">Zur Einrichtung des DESY Telefonbuchs muessen Sie sich einmalig einloggen.</p>
 		<form id="loginForm">
 			<div>
 				<input type="text" name="username" id="username" value="" placeholder="Username" />
@@ -114,11 +115,11 @@ $('#loginForm').submit(function(e) {
   e.preventDefault();
   
 	var username = $("#username", this).val();
-//	var password = $("#password", this).val();
+	var password = $("#password", this).val();
 
-    var salt = json["salt"];
-    var hash = hex_sha256($('#password').val());
-    var password = hex_hmac_sha256(salt, hash);
+//    var salt = json["salt"];
+//    var hash = hex_sha256($('#password').val());
+//    var password = hex_hmac_sha256(salt, hash);
 
     $.ajax({
       url      : 'http://www.desy.de/~bvenne/sicher/',
