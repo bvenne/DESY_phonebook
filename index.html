@@ -40,6 +40,7 @@
 					<label class="remember_label" for="remember">Stay signed in</label>
 				</div>
 				<br /><input type="submit" value="Login" id="submitButton">
+				<span id="loading"><img class="loader" src="ajax-loader.gif" alt="Loading"> Loading...</span>
 				<p id="error" class="error"><i class="fa fa-exclamation-circle"></i> Das hat leider nicht geklappt. Versuchen Sie es erneut.</p>
 			</form>
 		</div>
@@ -78,7 +79,8 @@
 	}
 
 	$('#loginForm').submit(function(e) {
-	  e.preventDefault();
+		e.preventDefault();
+		$("#loading").show();		
 	  
 		var username = $("#username", this).val();
 		var password = $("#password", this).val();
