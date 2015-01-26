@@ -15,53 +15,7 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-        
-        
-        
-
-
-
-
-
-
-/*
-$("#loginForm").on("submit",function(e) {
-	
-var u = $("#username", this).val();
-var p = $("#password", this).val();
-
-$.ajax({
-'url': 'http://www.desy.de/~bvenne/sicher/',
-'beforeSend': function(xhr) {
-xhr.setRequestHeader("Authentication", "Basic " + encodeBase64(u + ":" + p)) //May need to use "Authorization" instead
-},
-sucess: function(result) {
-alert('done, geht!');
-},
-  error: function(){
-    alert('error mensch!');
-  }
-});
-
-});
-        */
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        app.receivedEvent('deviceready');        
         
     },
     // Update DOM on a Received Event

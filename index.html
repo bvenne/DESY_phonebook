@@ -18,66 +18,32 @@
 			}
 		</style>
 	<![endif]-->
-	<style>
-		.fa-lg {
-			font-size: 1.7em;
-			line-height: .5em;
-		}
-		.contact-email, .contact-phone, .contact-info { width: 30px; }
-		
-		#loginPage {
-			margin: 0 auto;
-			padding: 2em;
-			max-width: 600px;
-			background-color: white;
-			border: 1px solid #dfdfdf;
-			box-shadow: 0 0 5px rgba(0,0,0,.05);
-		}
-		
-		input[type='password'] { width: 96%; border: 1px solid #ccc; padding: 1em; }
-		#username, #password { margin-bottom: 1em; }
-	</style>
 </head>
 
 <body>
-	
-	
 
-
-	
-<div id="loginPage">
-	<div>
-		<h1>DESY Login</h1>
+	<div id="loginPage">
+		<div>
+			<h1>DESY Login</h1>
+		</div>
+		<div>
+			<p id="login_hint">Zur Einrichtung des DESY Telefonbuchs m&uuml;ssen Sie sich einmalig einloggen.</p>
+			<form id="loginForm">
+				<div>
+					<input type="text" name="username" id="username" value="" placeholder="Username" />
+				</div>
+				<div>
+					<input type="password" name="password" id="password" value="" placeholder="Password" />
+				</div>
+				<div>
+					<input id="remember" value="1" name="remember" type="checkbox" checked>
+					<label class="remember_label" for="remember">Stay signed in</label>
+				</div>
+				<br /><input type="submit" value="Login" id="submitButton">
+				<p id="error" class="error"><i class="fa fa-exclamation-circle"></i> Das hat leider nicht geklappt. Versuchen Sie es erneut.</p>
+			</form>
+		</div>
 	</div>
-	<div>
-		<p id="hint">Zur Einrichtung des DESY Telefonbuchs muessen Sie sich einmalig einloggen.</p>
-		<form id="loginForm">
-			<div>
-				<input type="text" name="username" id="username" value="" placeholder="Username" />
-			</div>
-			<div>
-				<input type="password" name="password" id="password" value="" placeholder="Password" />
-			</div>
-			<input type="submit" value="Login" id="submitButton">
-		</form>
-	</div>
-</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	<div id="container" style="display:none;">
 		<header>
@@ -105,35 +71,36 @@
 	
 	<script>
 	// courtest of stack overflow...
-function make_base_auth(user, password) {
-  var tok = user + ':' + password;
-  var hash = btoa(tok);
-  return "Basic " + hash;
-}
+	function make_base_auth(user, password) {
+	  var tok = user + ':' + password;
+	  var hash = btoa(tok);
+	  return "Basic " + hash;
+	}
 
-$('#loginForm').submit(function(e) {
-  e.preventDefault();
-  
-	var username = $("#username", this).val();
-	var password = $("#password", this).val();
+	$('#loginForm').submit(function(e) {
+	  e.preventDefault();
+	  
+		var username = $("#username", this).val();
+		var password = $("#password", this).val();
 
-//    var salt = json["salt"];
-//    var hash = hex_sha256($('#password').val());
-//    var password = hex_hmac_sha256(salt, hash);
+	//    var salt = json["salt"];
+	//    var hash = hex_sha256($('#password').val());
+	//    var password = hex_hmac_sha256(salt, hash);
 
-    $.ajax({
-      url      : 'http://www.desy.de/~bvenne/sicher/',
-      type     : 'GET',
-      headers  : { Authorization: make_base_auth(username, password) },
-      success  : function(){
-        setTimeout(function() { alert("laeuft!!!"); $("#loginPage").hide(); $("#container").show(); }, 2000);
-      },
-      error    : function(){ alert("FEHLER BEIM LOGIN!!!"); console.log('error'); }
-    });
+		$.ajax({
+		  url      : 'https://www.desy.de/~bvenne/sicher/',
+		  type     : 'GET',
+		  headers  : { Authorization: make_base_auth(username, password) },
+		  success  : function(){
+			setTimeout(function() { 
+				$("#loginPage").hide(); 
+				$("#container").show(); 
+			}, 2000);
+		  },
+		  error    : function(){ $("#error").show(); console.log('error'); }
+		});
 
-
-});
-
+	});
 	</script>
 </body>
 </html>
