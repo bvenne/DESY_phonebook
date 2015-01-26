@@ -2,10 +2,9 @@ $(document).ready(function() {
 	
 	if(window.localStorage["desyphone_username"] != undefined) {
 		$("#loginPage").hide();
-		$("#container").hide();
-		alert("welcome ",window.localStorage["desyphone_username"]);
+		$("#container").show();
+		alert("welcome back ",window.localStorage["desyphone_username"]);
 	}
-	
 
     var minlength = 2;
 

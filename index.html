@@ -80,7 +80,7 @@
 
 	$('#loginForm').submit(function(e) {
 		e.preventDefault();
-		$("#loading").show();		
+		$("#loading").show();
 	  
 		var username = $("#username", this).val();
 		var password = $("#password", this).val();
@@ -95,11 +95,15 @@
 		  headers  : { Authorization: make_base_auth(username, password) },
 		  success  : function(){
 			setTimeout(function() { 
-				$("#loginPage").hide(); 
+				if ($('#remember').is(':checked')) {
+					$("#username").val(window.localStorage["desyphone_username"]);
+				}
+				$("#loginPage").hide();
+				$("#loading").hide();
 				$("#container").show(); 
 			}, 2000);
 		  },
-		  error    : function(){ $("#error").show(); console.log('error'); }
+		  error    : function(){ $("#error").show(); $("#loading").hide(); console.log('error'); }
 		});
 
 	});
