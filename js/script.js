@@ -86,6 +86,6 @@ $(document).ready(function() {
     $('#delete_desyphone_username').click(function() {
 				localStorage.removeItem('desyphone_username');
 				location.reload();
-	}
+	});
 
 }); // close document.ready
