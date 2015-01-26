@@ -3,7 +3,9 @@ $(document).ready(function() {
 	if (localStorage.desyphone_username) {
 		$("#loginPage").hide();
 		$("#container").show();
-		alert("welcome back ",localStorage.getItem("desyphone_username"));
+		//alert("welcome back ");
+		//console.log(localStorage.getItem("desyphone_username"));
+		$("#LoggedInUser").html(localStorage.getItem("desyphone_username"));
 	}
 	
 
