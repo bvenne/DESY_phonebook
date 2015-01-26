@@ -48,7 +48,15 @@
 	
 	<div id="container" style="display:none;">
 		<header>
-			<span id="LoggedInUser" style="float: right; font-size: .6em;">USERNAME</span>
+			<span id="SignOut"><i class="fa fa-sign-out"></i></span>
+			<div id="SignOutDialog">
+				<i class="fa fa-user"></i> <span id="LoggedInUser" style="float: right; font-size: 1em;">username</span>
+				<p>Do you want to logout?</p>
+				<p>
+					<span class="button b-close" id="delete_desyphone_username"><span>Yes</span></span>
+					<span class="button b-close"><span>No</span></span>
+				</p>
+			</div>
 			<h1>DESY Phone Book</h1>
 		</header>
 		<section id="search">
@@ -63,6 +71,7 @@
 
 	<!-- External JS -->
 	<script type="text/javascript" charset="UTF-8" src="https://wof-live.desy.de/++resource++zms_/jquery/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="https://wof-live.desy.de/sites/desyphonebook/js/jquery.bpopup.min.js"></script>
 
 	<!-- Internal JS -->
 	<script src="js/script.js" type="text/javascript"></script>

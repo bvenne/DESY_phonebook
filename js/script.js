@@ -3,8 +3,6 @@ $(document).ready(function() {
 	if (localStorage.desyphone_username) {
 		$("#loginPage").hide();
 		$("#container").show();
-		//alert("welcome back ");
-		//console.log(localStorage.getItem("desyphone_username"));
 		$("#LoggedInUser").html(localStorage.getItem("desyphone_username"));
 	}
 	
@@ -62,6 +60,32 @@ $(document).ready(function() {
 			$("#search-field").keypress();
 		}
 	});
-
+	
+	
+	
+    // Dialog
+    (function($) {
+         // DOM Ready
+        $(function() {
+            // Binding a click event
+            $('#SignOut').on('click', function(e) {
+                // Prevents the default action to be triggered. 
+                e.preventDefault();
+                // Triggering bPopup when click event is fired
+                $('#SignOutDialog').bPopup({
+					fadeSpeed: 'slow',
+					modalClose: false,
+					opacity: 0.6,
+					positionStyle: 'fixed'
+                });
+            });
+        });
+    })(jQuery);
+    
+    // Delete local storgae (username)
+    $('#delete_desyphone_username').click(function() {
+				localStorage.removeItem('desyphone_username');
+				location.reload();
+	}
 
 }); // close document.ready
