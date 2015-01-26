@@ -96,7 +96,7 @@
 		  success  : function(){
 			setTimeout(function() { 
 				if ($('#remember').is(':checked')) {
-					$("#username").val(window.localStorage["desyphone_username"]);
+					localStorage.setItem('desyphone_username', $("#username").val());
 				}
 				$("#loginPage").hide();
 				$("#loading").hide();

@@ -1,10 +1,11 @@
 $(document).ready(function() {
 	
-	if(window.localStorage["desyphone_username"] != undefined) {
+	if (localStorage.desyphone_username) {
 		$("#loginPage").hide();
 		$("#container").show();
-		alert("welcome back ",window.localStorage["desyphone_username"]);
+		alert("welcome back ",localStorage.getItem("desyphone_username"));
 	}
+	
 
     var minlength = 2;
 
@@ -32,7 +33,7 @@ $(document).ready(function() {
                         $.each(addrBook, function (i, obj) {
 							// Keine funktionalen Accounts
 							if (obj.description=="primary") {
-								$("#search-results").append('<div class="contact"><span class="contact-name">' + obj.cn + '</span><a href="tel:+49408998' + obj.telephoneNumber + '"><div class="contact-phone fa fa-phone-square fa-lg" title="-' + obj.telephoneNumber + '"></div></a><a href="mailto:' + obj.mail + '"><div class="contact-email fa fa-envelope fa-lg" title="' + obj.mail + '"></div></a><div class="contact-info fa fa-info-circle fa-lg" title="Details"></div><div class="contact-details">Group: ' + obj.ou + '<br />Location: ' + obj.physicalDeliveryOfficeName + '<br />Fax: ' + obj.fax + '<br /></div></div>');
+								$("#search-results").append('<div class="contact"><span class="contact-name">' + obj.cn + '</span><a href="tel:+49408998' + obj.telephoneNumber + '"><div class="contact-phone fa fa-phone-square fa-lg" title="-' + obj.telephoneNumber + '"></div></a><a href="mailto:' + obj.mail + '"><div class="contact-email fa fa-envelope fa-lg" title="' + obj.mail + '"></div></a><div class="contact-info fa fa-info-circle fa-lg" title="Details"></div><div class="contact-details">Group: ' + obj.ou + '<br />Location: ' + obj.physicalDeliveryOfficeName + '<br /></div></div>');
 							}
 											
 						}); // end each

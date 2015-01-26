@@ -4,13 +4,13 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "de.desy.phonebook"
-        version   = "0.0.7">
+        version   = "0.0.8">
 
     <name>DESY Phone Book</name>
     <description>
         DESY Phone Book
     </description>
-    <author href="http://www.vennemann.us" email="apps@vennemann.us">
+    <author href="http://www.desy.de/~bvenne" email="bastian.vennemann@desy.de">
         Bastian Vennemann
     </author>
 
