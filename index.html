@@ -52,6 +52,7 @@
 			<div id="SignOutDialog">
 				<i class="fa fa-user"></i> <span id="LoggedInUser">username</span>
 				<p>Do you want to logout?</p>
+				<br />
 				<p>
 					<span class="button b-close" id="delete_desyphone_username"><span>Yes</span></span>
 					<span class="button b-close"><span>No</span></span>
@@ -111,6 +112,7 @@
 				$("#loginPage").hide();
 				$("#loading").hide();
 				$("#container").show(); 
+				$("#LoggedInUser").html(localStorage.getItem("desyphone_username"));
 			}, 2000);
 		  },
 		  error    : function(){ $("#error").show(); $("#loading").hide(); console.log('error'); }

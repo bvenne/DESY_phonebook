@@ -3,9 +3,7 @@ $(document).ready(function() {
 	if (localStorage.desyphone_username) {
 		$("#loginPage").hide();
 		$("#container").show();
-		$("#LoggedInUser").html(localStorage.getItem("desyphone_username"));
 	}
-	
 
     var minlength = 2;
 
