@@ -77,29 +77,13 @@ $(document).ready(function() {
             });
         });
     })(jQuery);
-    
-	// WOF easteregg
-	(function ($) {
-	  var count = 0;
-	  $('#desylogo').click(function () {
-		count += 1;
-		if (count == 7) {
-			$('#popup').bPopup({
-				content:'image',
-				contentContainer:'.popupcontent',
-				loadUrl:'wof_rules.jpg',
-				autoClose: 6000,
-				modalClose: false
-			});
-			count = 0;
-		}
-	  });
-	})(jQuery);
-        
+          
     // Delete local storgae (username)
     $('#delete_desyphone_username').click(function() {
 				localStorage.removeItem('desyphone_username');
 				location.reload();
 	});
+	
+
 
 }); // close document.ready
