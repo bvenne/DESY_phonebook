@@ -71,6 +71,7 @@ $(document).ready(function() {
                 e.preventDefault();
                 // Triggering bPopup when click event is fired
                 $('#SignOutDialog').bPopup({
+					onOpen: function() { $("#LoggedInUser").html(localStorage.getItem("desyphone_username")); }, 
 					fadeSpeed: 'slow',
 					modalClose: false,
 					opacity: 0.6,
@@ -79,7 +80,7 @@ $(document).ready(function() {
             });
         });
     })(jQuery);
-    
+        
     // Delete local storgae (username)
     $('#delete_desyphone_username').click(function() {
 				localStorage.removeItem('desyphone_username');
