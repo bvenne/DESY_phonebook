@@ -76,6 +76,24 @@ $(document).ready(function() {
                 });
             });
         });
+        
+        $(function() {
+			var count = 0;
+			$('#desylogo').click(function () {
+				count += 1;
+				if (count == 7) {
+					$('#popup').bPopup({
+						content:'image',
+						contentContainer:'.popupcontent',
+						loadUrl:'wof_rules.jpg',
+						autoClose: 6000,
+						modalClose: false
+					});
+					count = 0;
+				}
+			});
+		});  
+		
     })(jQuery);
           
     // Delete local storgae (username)
