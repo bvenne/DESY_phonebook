@@ -102,7 +102,7 @@
 		var password = $("#password", this).val();
 
 		$.ajax({
-		  url      : 'https://market.desy.de/',
+		  url      : 'https://www.desy.de/~bvenne/sicher/', // 'https://market.desy.de/' funktioniert nur bei android?!
 		  type     : 'GET',
 		  headers  : { Authorization: make_base_auth(username, password) },
 		  success  : function(){

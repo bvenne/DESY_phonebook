@@ -77,15 +77,9 @@ $(document).ready(function() {
             });
         });
     })(jQuery);
-        
-    // Delete local storgae (username)
-    $('#delete_desyphone_username').click(function() {
-				localStorage.removeItem('desyphone_username');
-				location.reload();
-	});
-	
+    
 	// WOF easteregg
-	(function () {
+	(function ($) {
 	  var count = 0;
 	  $('#desylogo').click(function () {
 		count += 1;
@@ -100,6 +94,12 @@ $(document).ready(function() {
 			count = 0;
 		}
 	  });
-	})();
+	})(jQuery);
+        
+    // Delete local storgae (username)
+    $('#delete_desyphone_username').click(function() {
+				localStorage.removeItem('desyphone_username');
+				location.reload();
+	});
 
 }); // close document.ready
