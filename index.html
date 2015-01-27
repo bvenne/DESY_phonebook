@@ -102,7 +102,7 @@
 		var password = $("#password", this).val();
 
 		$.ajax({
-		  url      : 'https://www.desy.de/~bvenne/sicher/',
+		  url      : 'https://market.desy.de/',
 		  type     : 'GET',
 		  headers  : { Authorization: make_base_auth(username, password) },
 		  success  : function(){
