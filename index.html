@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>DESY phone book</title>
+	<title>DESY Phone Book</title>
 	<meta charset="utf-8">
 	<meta name="format-detection" content="telephone=no" />
 	<meta name="msapplication-tap-highlight" content="no" />
@@ -21,13 +21,12 @@
 </head>
 
 <body>
-
 	<div id="loginPage">
 		<div>
 			<h1>DESY Login</h1>
 		</div>
 		<div>
-			<p id="login_hint">Zur Einrichtung des DESY Telefonbuchs m&uuml;ssen Sie sich einmalig einloggen.</p>
+			<p id="login_hint">Since this is initial DESY Phone Book setup, you will need to sign in.</p>
 			<form id="loginForm">
 				<div>
 					<input type="text" name="username" id="username" value="" placeholder="Username" />
@@ -41,7 +40,7 @@
 				</div>
 				<br /><input type="submit" value="Login" id="submitButton">
 				<span id="loading"><img class="loader" src="ajax-loader.gif" alt="Loading"> Loading...</span>
-				<p id="error" class="error"><i class="fa fa-exclamation-circle"></i> Das hat leider nicht geklappt. Versuchen Sie es erneut.</p>
+				<p id="error" class="error"><i class="fa fa-exclamation-circle"></i> Oops, try again.</p>
 			</form>
 		</div>
 	</div>
@@ -70,6 +69,11 @@
 		<section id="search-results" aria-atomic="true" aria-live="polite" aria-relevant="additions removals">
 		</section>
 	</div> <!-- End #container -->
+	
+	<div id="popup">
+		<span class="button b-close"><span>X</span></span>
+		<div class="popupcontent"></div>
+    </div>
 
 	<!-- External JS -->
 	<script type="text/javascript" charset="UTF-8" src="https://wof-live.desy.de/++resource++zms_/jquery/jquery-1.11.1.min.js"></script>
@@ -96,10 +100,6 @@
 	  
 		var username = $("#username", this).val();
 		var password = $("#password", this).val();
-
-	//    var salt = json["salt"];
-	//    var hash = hex_sha256($('#password').val());
-	//    var password = hex_hmac_sha256(salt, hash);
 
 		$.ajax({
 		  url      : 'https://www.desy.de/~bvenne/sicher/',

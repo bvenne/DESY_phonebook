@@ -83,5 +83,21 @@ $(document).ready(function() {
 				localStorage.removeItem('desyphone_username');
 				location.reload();
 	});
+	
+	// WOF easteregg
+	(function () {
+	  var count = 0;
+	  $('#desylogo').click(function () {
+		count += 1;
+		if (count == 7) {
+			$('#popup').bPopup({
+				content:'image',
+				contentContainer:'.popupcontent',
+				loadUrl:'wof_rules.jpg'
+			});
+			count = 0;
+		}
+	  });
+	})();
 
 }); // close document.ready
