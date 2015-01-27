@@ -77,7 +77,8 @@ $(document).ready(function() {
             });
             
             
-			// WOF easteregg        
+			// WOF easteregg 
+			/*       
 			var count = 0;
 			$('#desylogo').click(function () {
 				count += 1;
@@ -92,6 +93,7 @@ $(document).ready(function() {
 					count = 0;
 				}
 			});
+			*/
             
             
         });
