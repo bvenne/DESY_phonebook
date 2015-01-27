@@ -93,7 +93,9 @@ $(document).ready(function() {
 			$('#popup').bPopup({
 				content:'image',
 				contentContainer:'.popupcontent',
-				loadUrl:'wof_rules.jpg'
+				loadUrl:'wof_rules.jpg',
+				autoClose: 6000,
+				modalClose: false
 			});
 			count = 0;
 		}
