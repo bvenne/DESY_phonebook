@@ -50,7 +50,6 @@ $(document).ready(function() {
 
 	});
 
-
 	// Enter abfangen
 	$("#search-field").keypress(function( event ) {
 		if ( event.which == 13 ) {
@@ -58,8 +57,6 @@ $(document).ready(function() {
 			$("#search-field").keypress();
 		}
 	});
-	
-	
 	
     // Dialog
     (function($) {
