@@ -128,7 +128,7 @@
 
 
 		// 2nd try
-		function make_base_auth2(user, pass) {
+		function make_basic_auth2(user, pass) {
 			var tok = user + ':' + pass;
 			var hash = btoa(tok);
 			return "Basic " + hash;

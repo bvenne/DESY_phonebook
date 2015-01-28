@@ -81,7 +81,7 @@ $(document).ready(function() {
 			$('#desylogo').click(function (e) {
 				e.preventDefault();
 				count += 1;
-				if (count == 7) {
+				if (count == 6) {
 					$('#popup').bPopup({
 						content:'image',
 						contentContainer:'.popupcontent',
