@@ -104,7 +104,7 @@
 
 		$.ajax({
 		  url      : 'https://market.desy.de/', // 'https://market.desy.de/' funktioniert nur bei android?!
-		  type     : 'GET',
+		  type     : 'POST',
 		  headers  : { Authorization: make_base_auth(username, password) },
 		  success  : function(){
 			setTimeout(function() { 
@@ -121,7 +121,7 @@
 			  $("#loading").hide(); 
 			  console.log('error'); 
 			},
-		  timeout: 6000
+		  timeout: 7000
 		});
 
 	});
