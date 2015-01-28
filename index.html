@@ -97,12 +97,13 @@
 	$('#loginForm').submit(function(e) {
 		e.preventDefault();
 		$("#loading").show();
+		$("#error").hide();
 	  
 		var username = $("#username", this).val();
 		var password = $("#password", this).val();
 
 		$.ajax({
-		  url      : 'https://market.desy.de', // 'https://market.desy.de/' funktioniert nur bei android?!
+		  url      : 'https://market.desy.de/', // 'https://market.desy.de/' funktioniert nur bei android?!
 		  type     : 'GET',
 		  headers  : { Authorization: make_base_auth(username, password) },
 		  success  : function(){
@@ -120,7 +121,7 @@
 			  $("#loading").hide(); 
 			  console.log('error'); 
 			},
-		  timeout: 6000 // sets timeout to 3 seconds
+		  timeout: 6000
 		});
 
 	});
