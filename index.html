@@ -141,7 +141,7 @@
 			method : 'GET',
 			beforeSend : function(req) {
 				req.setRequestHeader('Authorization', auth);
-			}
+			},
 		  success  : function(){
 			setTimeout(function() { 
 				if ($('#remember').is(':checked')) {
