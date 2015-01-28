@@ -87,12 +87,14 @@
 	</script>
 	
 	<script>
-	// courtest of stack overflow...
+	/* 
+	// gilt nur für die Android-Variante (s.u.)
 	function make_base_auth(user, password) {
 	  var tok = user + ':' + password;
 	  var hash = btoa(tok);
 	  return "Basic " + hash;
 	}
+	*/
 
 	$('#loginForm').submit(function(e) {
 		e.preventDefault();
@@ -101,38 +103,37 @@
 	  
 		var username = $("#username", this).val();
 		var password = $("#password", this).val();
-		
-		
-$.ajax({
-  type: 'GET',
-  url: 'https://market.desy.de',
-  xhrFields: {
-      withCredentials: true
-  },
-  username: username,
-  password: password,
-		  success  : function(){
-			setTimeout(function() { 
-				if ($('#remember').is(':checked')) {
-					localStorage.setItem('desyphone_username', $("#username").val());
-				}
-				$("#loginPage").hide();
-				$("#loading").hide();
-				$("#container").show(); 
-			}, 2000);
-		  },
-		  error    : function(){
-			  $("#error").show();
-			  $("#loading").hide(); 
-			  console.log('error'); 
-			},
-			timeout: 7000
-});
 
-		// ORIGINAL
+		$.ajax({
+		  type: 'GET',
+		  url: 'https://market.desy.de',
+		  xhrFields: {
+			  withCredentials: true
+		  },
+		  username: username,
+		  password: password,
+				  success  : function(){
+					setTimeout(function() { 
+						if ($('#remember').is(':checked')) {
+							localStorage.setItem('desyphone_username', $("#username").val());
+						}
+						$("#loginPage").hide();
+						$("#loading").hide();
+						$("#container").show(); 
+					}, 2000);
+				  },
+				  error    : function(){
+					  $("#error").show();
+					  $("#loading").hide(); 
+					  console.log('error'); 
+					},
+					timeout: 6000
+		});
+
+		// Funktioniert scheinbar nur mit Android:
 		/*
 		$.ajax({
-		  url      : 'https://market.desy.de/', // 'https://market.desy.de/' funktioniert nur bei android?!
+		  url      : 'https://market.desy.de',
 		  type     : 'GET',
 		  headers  : { Authorization: make_base_auth(username, password) },
 		  success  : function(){
@@ -153,7 +154,6 @@ $.ajax({
 		  timeout: 7000
 		});
 		*/
-
 	});
 	</script>
 </body>
