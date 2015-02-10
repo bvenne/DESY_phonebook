@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "de.desy.phonebook"
-        version   = "1.0.1">
+        version   = "1.0.2">
 
     <name>DESY Phone Book</name>
     <description>
@@ -92,6 +92,12 @@
 
 	<!-- Windows //-->
     <gap:splash src="res/screen/windows/screen.jpg" gap:platform="winphone" />
+    
+    
+    <!-- Hide Android TitleBar (onload) //-->
+    <gap:config-file platform="android" parent="/manifest">
+        <application android:theme="@android:style/Theme.NoTitleBar"></application>
+    </gap:config-file>
 	
     <preference name="permissions" value="none"/>
 </widget>
