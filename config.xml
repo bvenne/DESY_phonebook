@@ -70,13 +70,14 @@
     <!-- splash screens -->
     <gap:splash src="res/screen/default.png" />
     
-    <!-- Android //-->
+    <!-- Android 
 	<gap:splash src="res/screen/android/res-long-port-ldpi/default.png" gap:platform="android" gap:qualifier="ldpi" />
 	<gap:splash src="res/screen/android/res-long-port-mdpi/default.png" gap:platform="android" gap:qualifier="mdpi" />
 	<gap:splash src="res/screen/android/res-long-port-hdpi/default.png" gap:platform="android" gap:qualifier="hdpi" />
 	<gap:splash src="res/screen/android/res-long-port-xhdpi/default.png" gap:platform="android" gap:qualifier="xhdpi" />
 	<gap:splash src="res/screen/android/res-long-port-xxhdpi/default.png" gap:platform="android" gap:qualifier="port-xxhdpi" />
 	<gap:splash src="res/screen/android/res-long-port-xxxhdpi/default.png" gap:platform="android" gap:qualifier="port-xxxhdpi" />
+	//-->
 
 	<!-- iPhone and iPod touch -->
 	<gap:splash src="res/screen/iphone/Default.png" gap:platform="ios" width="320" height="480" />
