@@ -31,7 +31,7 @@ $(document).ready(function() {
                         $.each(addrBook, function (i, obj) {
 							// Keine funktionalen Accounts
 							if (obj.description=="primary") {
-								$("#search-results").append('<div class="contact"><span class="contact-name">' + obj.cn + '</span><a href="tel:+49408998' + obj.telephoneNumber + '"><div class="contact-phone fa fa-phone-square fa-lg" title="-' + obj.telephoneNumber + '"></div></a><a href="mailto:' + obj.mail + '"><div class="contact-email fa fa-envelope fa-lg" title="' + obj.mail + '"></div></a><div class="contact-info fa fa-info-circle fa-lg" title="Details"></div><div class="contact-details">Group: ' + obj.ou + '<br />Location: ' + obj.physicalDeliveryOfficeName + '<br /></div></div>');
+								$("#search-results").append('<div class="contact"><span class="contact-name">' + obj.cn + '</span><a href="tel:+49408998' + obj.telephoneNumber + '"><div class="contact-phone fa fa-phone-square fa-lg" title="-' + obj.telephoneNumber + '"></div></a><a href="mailto:' + obj.mail + '"><div class="contact-email fa fa-envelope fa-lg" title="' + obj.mail + '"></div></a><div class="contact-info fa fa-info-circle fa-lg" title="Details"></div><div class="contact-details">Tel: +49 40 8998 ' + obj.telephoneNumber + '<br />Group: ' + obj.ou + '<br />Location: ' + obj.physicalDeliveryOfficeName + '<br /></div></div>');
 							}
 											
 						}); // end each
@@ -39,7 +39,9 @@ $(document).ready(function() {
 
 						// Toggle function for contact details
 						$('.contact-info, .contact-name').click(function() {
+							$(this).toggleClass("active");
 							$(this).nextAll('.contact-details').slideToggle( "slow" );
+							$(this).nextAll('.contact-info').toggleClass("active");
 						});
 						// end Toggle
 
