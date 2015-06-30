@@ -4,6 +4,9 @@ $(document).ready(function() {
 		$("#loginPage").hide();
 		$("#container").show();
 	}
+	if (localStorage.login_msg) {
+		$("#login_hint").html(localStorage.login_msg);
+	}
 
     var minlength = 2;
 
@@ -15,16 +18,29 @@ $(document).ready(function() {
         if (value.length >= minlength ) {
             $.ajax({
                 type: "GET",
-                url: "http://wof-live.desy.de/sites/desyphonebook/phonebook",
+                url: "https://pbookapp.desy.de/phonebook",
                 data: {
-                    'search_keyword' : value
+                    'search_keyword' : value,
+                    'username' : localStorage.desyphone_username,
+                    'hash' : localStorage.desyphone_hash
                 },
                 dataType: "text",
                 success: function(msg){
+                    //check for invalid hash
+                    var jsonmsg = jQuery.parseJSON( msg );
+                    if (jsonmsg.status == 'invalid') {
+						localStorage.removeItem('desyphone_username');
+						localStorage.removeItem('desyphone_hash');
+						localStorage.setItem('login_msg', 'Token Expired: Your token is invalid or has expired. Please login again.');
+						location.reload();
+					}
+                    
                     //we need to check if the value is the same
                     if (value==$(that).val()) {
-
                         var json = jQuery.parseJSON( msg );
+                        
+                        
+                        
                         var addrBook = json.addressBook;
                         $("#search-results").empty();
 
@@ -46,7 +62,10 @@ $(document).ready(function() {
 						// end Toggle
 
                     }
-                }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) { 
+					alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+				} 
             });
         }
 
@@ -102,6 +121,8 @@ $(document).ready(function() {
     // Delete local storgae (username)
     $('#delete_desyphone_username').click(function() {
 				localStorage.removeItem('desyphone_username');
+				localStorage.removeItem('desyphone_hash');
+				localStorage.setItem('login_msg', 'Since this is initial DESY Phone Book setup, you will need to sign in.');
 				location.reload();
 	});
 	

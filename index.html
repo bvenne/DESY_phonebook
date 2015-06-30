@@ -8,16 +8,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 	<meta name="author" content="Bastian Vennemann">
 	<script type="text/javascript" src="cordova.js"></script>
-	<!-- CSS -->
 	<link rel="stylesheet" href="https://pbookapp.desy.de/common4all/fonts/font-awesome/font-awesome-4.2.0/css/font-awesome.min.css" >
 	<link rel="stylesheet" href="https://pbookapp.desy.de/css/style.css" type="text/css" />
-	<!--[if gte IE 9]>
-		<style type="text/css">
-			.gradient {
-				filter: none;
-			}
-		</style>
-	<![endif]-->
 </head>
 
 <body>
@@ -40,11 +32,11 @@
 				</div>
 				<br /><input type="submit" value="Login" id="submitButton">
 				<span id="loading"><img class="loader" src="ajax-loader.gif" alt="Loading"> Loading...</span>
-				<p id="error" class="error"><i class="fa fa-exclamation-circle"></i> Oops, try again.</p>
+				<p id="error" class="error"><i class="fa fa-exclamation-circle"></i> Invalid login. Please try again.</p>
 			</form>
 		</div>
 	</div>
-	
+
 	<div id="container" style="display:none;">
 		<header>
 			<span id="SignOut"><i class="fa fa-sign-out"></i></span>
@@ -105,17 +97,20 @@
 		var password = $("#password", this).val();
 
 		$.ajax({
-		  type: 'GET',
-		  url: 'https://pbookapp.desy.de/phonebook?search_keyword=',
+		  type: 'POST',
+		  url: 'https://pbookapp.desy.de/registration/register.html',
+		  data: { username: username, k1: 'None' },
 		  xhrFields: {
 			  withCredentials: true
 		  },
 		  username: username,
 		  password: password,
-				  success  : function(){
+				  success  : function(data){
 					setTimeout(function() { 
 						if ($('#remember').is(':checked')) {
 							localStorage.setItem('desyphone_username', $("#username").val());
+							var jsonObj = $.parseJSON(data);
+							localStorage.setItem('desyphone_hash', jsonObj.hash);
 						}
 						$("#loginPage").hide();
 						$("#loading").hide();
