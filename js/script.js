@@ -31,7 +31,7 @@ $(document).ready(function() {
                     if (jsonmsg.status == 'invalid') {
 						localStorage.removeItem('desyphone_username');
 						localStorage.removeItem('desyphone_hash');
-						localStorage.setItem('login_msg', 'Token Expired: Your token is invalid or has expired. Please login again.');
+						localStorage.setItem('login_msg', '<span style="color:red;">Token Expired: Your token is invalid or has expired. Please login again.</span>');
 						location.reload();
 					}
                     
