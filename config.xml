@@ -5,7 +5,7 @@
         xmlns:gap 		= "http://phonegap.com/ns/1.0"
 		xmlns:android   = "http://schemas.android.com/apk/res/android"
         id        		= "de.desy.phonebook"
-        version   		= "1.0.5">
+        version   		= "1.0.7">
 
     <name>DESY Phone Book</name>
     <description>
@@ -25,7 +25,7 @@
     <preference name="ios-statusbarstyle"         value="black-opaque" />   <!-- ios: black-translucent will appear black because the PhoneGap webview doesn't go beneath the status bar -->
     <preference name="detect-data-types"          value="true" />           <!-- ios: controls whether data types (such as phone no. and dates) are automatically turned into links by the system -->
     <preference name="exit-on-suspend"            value="false" />          <!-- ios: if set to true, app will terminate when home button is pressed -->
-    <preference name="show-splash-screen-spinner" value="false" />           <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
+    <preference name="show-splash-screen-spinner" value="true" />           <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
     <preference name="auto-hide-splash-screen"    value="true" />           <!-- ios: if set to false, the splash screen must be hidden using a JavaScript API -->
     <preference name="disable-cursor"             value="false" />          <!-- blackberry: prevents a mouse-icon/cursor from being displayed on the app -->
     <preference name="android-minSdkVersion"      value="7" />              <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
@@ -61,48 +61,55 @@
     <icon src="res/icon/android/Icon-xhdpi.png"  gap:platform="android"    gap:qualifier="xhdpi" />
     <icon src="res/icon/android/Icon-xxhdpi.png"  gap:platform="android"    gap:qualifier="xxhdpi" />
     <icon src="res/icon/android/Icon-xxxhdpi.png"  gap:platform="android"    gap:qualifier="xxxhdpi" />
-    
 	<!-- iPhone 6 / 6+ -->
 	<icon src="res/icon/ios/Icon-60@3x.png" gap:platform="ios" width="180" height="180" />
-
 	<!-- iPhone / iPod Touch  -->
 	<icon src="res/icon/ios/Icon-60.png" gap:platform="ios" width="60" height="60" />
 	<icon src="res/icon/ios/Icon-60@2x.png" gap:platform="ios" width="120" height="120" />
-
 	<!-- iPad -->
 	<icon src="res/icon/ios/Icon-76.png" gap:platform="ios" width="76" height="76" />
 	<icon src="res/icon/ios/Icon-76@2x.png" gap:platform="ios" width="152" height="152" />
-
 	<!-- Settings Icon -->
 	<icon src="res/icon/ios/Icon-Small.png" gap:platform="ios" width="29" height="29" />
 	<icon src="res/icon/ios/Icon-Small@2x.png" gap:platform="ios" width="58" height="58" />
-
 	<!-- Spotlight Icon -->
 	<icon src="res/icon/ios/Icon-Small-40.png" gap:platform="ios" width="40" height="40" />
 	<icon src="res/icon/ios/Icon-40@2x.png" gap:platform="ios" width="80" height="80" />
-
 	<!-- iPhone / iPod Touch -->
 	<icon src="res/icon/ios/Icon.png" gap:platform="ios" width="57" height="57" />
 	<icon src="res/icon/ios/Icon@2x.png" gap:platform="ios" width="114" height="114" />
-
 	<!-- iPad -->
 	<icon src="res/icon/ios/Icon-72.png" gap:platform="ios" width="72" height="72" />
 	<icon src="res/icon/ios/Icon-72@2x.png" gap:platform="ios" width="144" height="144" />
-
 	<!-- iPad Spotlight and Settings Icon -->
 	<icon src="res/icon/ios/Icon-Small-50.png" gap:platform="ios" width="50" height="50" />
 	<icon src="res/icon/ios/Icon-Small-50@2x.png" gap:platform="ios" width="100" height="100" />
 
-    <!--
-    <icon src="res/icon/ios/icon-57.png"            gap:platform="ios"        width="57" height="57" />
-    <icon src="res/icon/ios/icon-72.png"            gap:platform="ios"        width="72" height="72" />
-    <icon src="res/icon/ios/icon-57-2x.png"         gap:platform="ios"        width="114" height="114" />
-    <icon src="res/icon/ios/icon-72-2x.png"         gap:platform="ios"        width="144" height="144" />
-    -->
     
-    <!-- splash screens 
+    <!-- splash screens -->
     <gap:splash src="res/screen/default.png" />
-    -->
+	<!-- iPhone and iPod touch -->
+	<gap:splash src="res/screen/iphone/Default.png" gap:platform="ios" width="320" height="480" />
+	<gap:splash src="res/screen/iphone/Default@2x.png" gap:platform="ios" width="640" height="960" />
+	<!-- iPhone 5 / iPod Touch (5th Generation) -->
+	<gap:splash src="res/screen/iphone/Default-568h@2x.png" gap:platform="ios" width="640" height="1136" />
+	<!-- iPhone 6 -->
+	<gap:splash src="res/screen/iphone/Default-667h@2x.png" gap:platform="ios" width="750" height="1334" />
+	<gap:splash src="res/screen/iphone/Default-Portrait-736h@3x.png" gap:platform="ios" width="1242" height="2208" />
+	<!-- iPad -->
+	<gap:splash src="res/screen/iphone/Default-Portrait.png" gap:platform="ios" width="768" height="1024" />
+	<!-- Retina iPad -->
+	<gap:splash src="res/screen/iphone/Default-Portrait@2x.png" gap:platform="ios" width="1536" height="2048" />
+    <!-- Android -->
+	<gap:splash src="res/screen/android/res-long-port-ldpi/default.png" gap:platform="android" gap:qualifier="ldpi" />
+	<gap:splash src="res/screen/android/res-long-port-mdpi/default.png" gap:platform="android" gap:qualifier="mdpi" />
+	<gap:splash src="res/screen/android/res-long-port-hdpi/default.png" gap:platform="android" gap:qualifier="hdpi" />
+	<gap:splash src="res/screen/android/res-long-port-xhdpi/default.png" gap:platform="android" gap:qualifier="xhdpi" />
+	<gap:splash src="res/screen/android/res-long-port-xxhdpi/default.png" gap:platform="android" gap:qualifier="port-xxhdpi" />
+	<gap:splash src="res/screen/android/res-long-port-xxxhdpi/default.png" gap:platform="android" gap:qualifier="port-xxhdpi" />
+	<!-- Windows -->
+	<gap:splash src="res/screen/windows/screen.jpg" gap:platform="winphone" />
+
     
     <!-- Hide Android TitleBar (onload) //-->
     <gap:config-file platform="android" parent="/manifest">
